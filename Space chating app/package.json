@@ -1,0 +1,12 @@
+{
+  "name": "space-private-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ephemeral peer-to-peer chat with in-memory signaling",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
+  }
+}

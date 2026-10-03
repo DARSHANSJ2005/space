@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="orbit" x1="9" y1="73" x2="88" y2="24" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#397AF4"/>
+      <stop offset=".5" stop-color="#DDEBFF"/>
+      <stop offset="1" stop-color="#4C79FF"/>
+    </linearGradient>
+    <linearGradient id="suit" x1="27" y1="47" x2="50" y2="91" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset=".52" stop-color="#B9D5FF"/>
+      <stop offset="1" stop-color="#5687F6"/>
+    </linearGradient>
+    <linearGradient id="spirit" x1="58" y1="19" x2="79" y2="63" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3F7FF"/>
+      <stop offset=".48" stop-color="#6B9CFF"/>
+      <stop offset="1" stop-color="#244ED2"/>
+    </linearGradient>
+    <radialGradient id="planet" cx="35%" cy="28%" r="75%">
+      <stop stop-color="#F8FBFF"/>
+      <stop offset=".48" stop-color="#9CC1FF"/>
+      <stop offset="1" stop-color="#527BE5"/>
+    </radialGradient>
+    <filter id="soft-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path d="M13 67C11 47 30 22 55 21c19-1 35 11 34 27-1 17-19 36-42 35C28 82 12 74 13 67Z" stroke="url(#orbit)" stroke-width="1.15"/>
+  <path d="M17 61c10-7 21-10 31-9" stroke="#BFD6FF" stroke-opacity=".68" stroke-width=".7"/>
+  <path d="M54 28c8 1 17 6 22 13" stroke="#88ACFF" stroke-opacity=".8" stroke-width=".75"/>
+  <circle cx="31" cy="32" r="2.2" fill="url(#planet)"/>
+  <circle cx="78" cy="70" r="3.1" fill="url(#planet)"/>
+  <circle cx="53" cy="19" r="1" fill="#DCEAFF"/>
+  <circle cx="19" cy="49" r=".8" fill="#729AFF"/>
+  <circle cx="84" cy="51" r=".8" fill="#729AFF"/>
+  <path d="m49 37 1.4 3.6 3.6 1.4-3.6 1.5-1.4 3.5-1.5-3.5-3.5-1.5 3.5-1.4 1.5-3.6Z" fill="#F8FBFF" filter="url(#soft-glow)"/>
+  <path d="m67 54 .8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z" fill="#DDEAFF"/>
+  <path d="M67 23c3-3 7-2 8 1 1 2 0 4-2 5 2 2 2 4 1 6l-2 3 1 7-5 7-2-7-4-3 1-5-2-3c-1-3 1-6 4-7l1-4Z" fill="url(#spirit)" fill-opacity=".77" stroke="#DCE8FF" stroke-width=".7" stroke-linejoin="round"/>
+  <path d="M66 29c-4 1-6 3-7 7l-4 4 1 2 5-3 3-5m7 9 4 4 5 1 1-2-5-2-3-5" stroke="#C4D9FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 48c-4 4-7 8-10 11m14-8c3 4 6 7 8 10" stroke="url(#spirit)" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="68" cy="25" r="2.3" fill="#DDEBFF" stroke="#FFFFFF" stroke-width=".5"/>
+  <path d="M34 48c3-2 7 0 8 3 1 3-1 5-3 6l4 5-4 6-6-2-3-5 1-6-2-3 2-4 3 0Z" fill="url(#suit)" stroke="#FFFFFF" stroke-width=".75" stroke-linejoin="round"/>
+  <path d="M36 57 30 61l-4 7 2 1 6-6 5-1m2-4 6-5 4 1-1 2-5 1-4 5m-7 5-5 8-3 7 3 1 6-8 5-6m2-6 3 8 3 8-3 2-6-8-3-5" fill="url(#suit)" stroke="#DCE9FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M33 51c1-3 5-4 8-1 2 2 2 5 0 7-3 2-7 1-9-2l1-4Z" fill="#EAF3FF" stroke="#FFFFFF" stroke-width=".65"/>
+  <path d="M34 52c2-2 5-2 7 0" stroke="#6090EA" stroke-width=".75" stroke-linecap="round"/>
+  <path d="M34 63 39 65m-7 12 4 2m5-16 4-2" stroke="#6E9AEF" stroke-width=".65" stroke-linecap="round"/>
+  <path d="M47 50c3-2 5-3 7-4m-1 3 2-3 2 1" stroke="#F3F7FF" stroke-width=".8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

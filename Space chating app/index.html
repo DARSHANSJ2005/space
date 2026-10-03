@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f9ff">
+    <meta name="description" content="A private, temporary space for two people to talk.">
+    <title>SPACE — private, for a moment</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="SPACE home"><img class="brand-mark" src="/space-logo.png" alt=""><span>SPACE<span class="wordmark-period">.</span></span></a>
+        <div class="topbar-right"><span class="privacy-indicator"><span class="privacy-dot"></span> PRIVATE BY DESIGN</span><button class="icon-button help-button" id="privacy-button" type="button" aria-label="Privacy details" title="Privacy details">i</button></div>
+      </header>
+
+      <main class="main-content">
+        <section class="intro" id="intro-view">
+          <div class="eyebrow"><span class="eyebrow-line"></span> A LITTLE SPACE, JUST FOR TWO</div>
+          <h1>Say it here.<br><span>Leave nothing behind.</span></h1>
+          <p class="intro-copy">A private conversation, directly between you. No accounts. No chat history. Just a space that disappears when time is up.</p>
+
+          <div class="entry-panel">
+            <div class="field-group">
+              <label for="display-name">YOUR NAME <span class="optional">OPTIONAL</span></label>
+              <input id="display-name" name="display-name" maxlength="24" autocomplete="nickname" placeholder="Something to call you">
+            </div>
+            <div class="field-row">
+              <div class="field-group duration-field">
+                <label for="duration">SPACE LASTS</label>
+                <div class="select-wrap"><select id="duration" name="duration"><option value="5">5 minutes</option><option value="15" selected>15 minutes</option><option value="30">30 minutes</option><option value="60">1 hour</option></select><span class="select-chevron" aria-hidden="true">⌄</span></div>
+              </div>
+              <button class="primary-button" id="create-button" type="button"><span>Create space</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+            </div>
+            <div class="panel-divider"><span>OR JOIN A SPACE</span></div>
+            <div class="join-row">
+              <label class="visually-hidden" for="invite-input">Paste a SPACE code</label>
+              <input id="invite-input" type="text" inputmode="text" maxlength="200" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Paste their SPACE link or code">
+              <button class="text-button" id="join-button" type="button">Join space <span aria-hidden="true">→</span></button>
+            </div>
+            <p class="form-error" id="form-error" role="alert" aria-live="polite"></p>
+          </div>
+
+          <section class="random-panel" aria-labelledby="random-title">
+            <div class="random-topline">
+              <div class="random-copy">
+                <span class="random-kicker"><span class="radar-mark" aria-hidden="true"></span> RANDOM CONNECTION</span>
+                <h2 id="random-title">Meet someone new</h2>
+                <p>Join the queue and request a chat with someone waiting in SPACE.</p>
+              </div>
+              <div class="random-count" aria-live="polite" aria-label="People available to match">
+                <strong id="available-count">0</strong>
+                <span>people waiting</span>
+              </div>
+            </div>
+            <div class="random-duration-row">
+              <label for="random-duration">SESSION DURATION</label>
+              <div class="select-wrap">
+                <select id="random-duration" name="random-duration">
+                  <option value="5">5 minutes</option>
+                  <option value="15" selected>15 minutes</option>
+                  <option value="30">30 minutes</option>
+                  <option value="60">1 hour</option>
+                </select>
+                <span class="select-chevron" aria-hidden="true">⌄</span>
+              </div>
+            </div>
+            <div class="random-actions">
+              <button class="random-button" id="find-random-button" type="button"><span>Find random person in our SPACE</span><span aria-hidden="true">↗</span></button>
+              <button class="text-button is-hidden" id="cancel-random-button" type="button">Cancel search</button>
+            </div>
+            <p class="random-status" id="random-status" aria-live="polite">Choose a duration, then find someone new.</p>
+          </section>
+
+          <div class="assurance-row">
+            <div class="assurance"><span class="assurance-icon lock-icon" aria-hidden="true"></span><div><strong>Encrypted in your browser</strong><span>Only your two devices can read messages.</span></div></div>
+            <div class="assurance"><span class="assurance-icon vanish-icon" aria-hidden="true">×</span><div><strong>Gone when you leave</strong><span>No message history, no accounts, no database.</span></div></div>
+          </div>
+        </section>
+
+        <section class="chat-view is-hidden" id="chat-view" aria-label="Private chat">
+          <div class="chat-topline">
+            <button class="back-button" id="back-button" type="button" aria-label="Back to space setup">←</button>
+            <div class="room-heading"><span class="room-kicker">YOUR PRIVATE SPACE</span><strong id="room-title">Waiting for someone</strong></div>
+            <div class="session-clock"><span class="clock-dot"></span><span id="countdown">15:00</span></div>
+            <button class="end-button" id="end-button" type="button">End space</button>
+          </div>
+
+          <div class="invite-strip" id="invite-strip">
+            <div class="invite-copy"><span class="invite-label">YOUR SPACE LINK</span><a class="invite-address" id="invite-address" href="#" target="_blank" rel="noreferrer">Creating a private link…</a></div>
+            <div class="invite-actions">
+              <a class="invite-link" id="invite-link" href="#" target="_blank" rel="noreferrer">Open space</a>
+              <button class="copy-button" id="copy-button" type="button"><span class="copy-symbol" aria-hidden="true">▢</span><span id="copy-label">Copy link</span></button>
+            </div>
+          </div>
+
+          <div class="chat-body">
+            <div class="connection-state" id="connection-state" aria-live="polite"><span class="state-indicator"></span><span id="connection-label">Making a private connection…</span></div>
+            <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
+          </div>
+
+          <form class="composer" id="message-form">
+            <label class="visually-hidden" for="message-input">Write a message</label>
+            <input id="message-input" maxlength="2000" autocomplete="off" placeholder="Write something…" disabled>
+            <span class="composer-hint">RETURN TO SEND</span>
+            <button class="send-button" id="send-button" type="submit" aria-label="Send message" disabled><span aria-hidden="true">↑</span></button>
+          </form>
+          <div class="chat-footer"><span><span class="footer-lock" aria-hidden="true"></span> END-TO-END ENCRYPTED</span><span>MESSAGES ARE NEVER SAVED</span></div>
+        </section>
+
+        <div class="notice" id="notice" role="status" aria-live="polite"></div>
+      </main>
+
+      <footer class="page-footer"><span>NO ACCOUNTS. NO HISTORY. JUST THIS MOMENT.</span><span class="footer-credit">DEVELOPED BY <strong>DARSHAN SJ</strong></span><span>SPACE <span class="footer-star">✳</span> 2026</span></footer>
+    </div>
+
+    <dialog class="privacy-dialog" id="privacy-dialog">
+      <form method="dialog"><button class="dialog-close" aria-label="Close privacy details">×</button></form>
+      <span class="dialog-eyebrow">A NOTE ON PRIVACY</span>
+      <h2>Private, not magic.</h2>
+      <p>Messages are encrypted in your browser and sent directly between devices. SPACE's temporary server only helps the devices find each other; it does not receive message text.</p>
+      <p>No service can promise perfect security. Your SPACE code is also the secret needed to join and decrypt messages, so share it only with the person you intend to talk to. Network metadata such as IP addresses may be visible to your internet provider and peer.</p>
+      <p>Random matching uses a temporary in-memory queue. SPACE does not ask for your gender, intention, or location to connect you. No chat messages are saved to disk or a database.</p>
+      <p>For a secure browser connection over the internet, this site must be hosted over HTTPS. Connection discovery uses a public STUN service, which can see your IP address. This app does not save chat messages to a database or browser storage.</p>
+    </dialog>
+    <dialog class="privacy-dialog match-dialog" id="match-dialog" aria-labelledby="match-dialog-title">
+      <span class="dialog-eyebrow">ANONYMOUS REQUEST</span>
+      <h2 id="match-dialog-title">Someone wants to connect</h2>
+      <p id="match-request-details">A person would like to start a temporary SPACE.</p>
+      <p class="match-privacy-note">No profile details are requested. You’ll enter the chat only after you accept.</p>
+      <div class="match-actions">
+        <button class="match-decline-button" id="decline-match-button" type="button">Not now</button>
+        <button class="random-button match-accept-button" id="accept-match-button" type="button">Accept and connect</button>
+      </div>
+    </dialog>
+  </body>
+</html>
